@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block my_title %}
+  My Blog
+{% endblock  %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+  
+  <section id="welcome">
+      <header>
+        <img src="{% static 'blog/images/logo.png' %} " alt="Mehul-The Author of this Blog">
+        <h2>Mehul's Blog</h2>
+      </header>
+      <p>Hi, I am Mehul and I love to Blog about tech and the World!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>    
+    <ul>
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
+      </ul>
+  </section>
+
+
+  <section id="about">
+    <h2>What I Do?</h2>
+    <p>I love programming,
+       I love to help others,
+       I love to play cricket.
+    </p>
+    <p>
+      My Goal is to go grow as a developer.
+    </p>
+  </section>
+
+{% endblock  %}
